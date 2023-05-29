@@ -38,7 +38,7 @@ export default function Home() {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    textAreaRef.current?.focus();
+    textAreaRef.current.focus();
   }, []);
 
   //handle form submission
@@ -103,7 +103,10 @@ export default function Home() {
       setLoading(false);
 
       //scroll to bottom
-      messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
+      if (messageListRef.current) {
+        messageListRef.current.scrollTo(0, messageListRef.current.scrollHeight);
+    
+      }
     } catch (error) {
       setLoading(false);
       setError('An error occurred while fetching the data. Please try again.');
