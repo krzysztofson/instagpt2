@@ -38,7 +38,9 @@ export default function Home() {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    textAreaRef.current.focus();
+    if (textAreaRef.current) {
+      textAreaRef.current.focus();
+    }
   }, []);
 
   //handle form submission
